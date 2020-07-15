@@ -1,6 +1,6 @@
 <?php
 /**
- * ReturnTrackingKey
+ * AcceptedStatusData
  *
  * PHP version 5
  *
@@ -30,14 +30,15 @@ namespace EzzeSiftuz\ReturnsV2\Model;
 use \EzzeSiftuz\ReturnsV2\ObjectSerializer;
 
 /**
- * ReturnTrackingKey Class Doc Comment
+ * AcceptedStatusData Class Doc Comment
  *
  * @category Class
+ * @description Details specific to a &#x27;accepted&#x27; return status.
  * @package  EzzeSiftuz\ReturnsV2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ReturnTrackingKey extends ReturnedItemStatusData 
+class AcceptedStatusData extends ReturnedItemStatusData 
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +47,7 @@ class ReturnTrackingKey extends ReturnedItemStatusData
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ReturnTrackingKey';
+    protected static $swaggerModelName = 'AcceptedStatusData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,8 +55,7 @@ class ReturnTrackingKey extends ReturnedItemStatusData
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'tracking_numbers' => 'string[]',
-'carrier' => 'string'    ];
+        'condition' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -63,8 +63,7 @@ class ReturnTrackingKey extends ReturnedItemStatusData
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tracking_numbers' => null,
-'carrier' => null    ];
+        'condition' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -93,8 +92,7 @@ class ReturnTrackingKey extends ReturnedItemStatusData
      * @var string[]
      */
     protected static $attributeMap = [
-        'tracking_numbers' => 'trackingNumbers',
-'carrier' => 'carrier'    ];
+        'condition' => 'condition'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -102,8 +100,7 @@ class ReturnTrackingKey extends ReturnedItemStatusData
      * @var string[]
      */
     protected static $setters = [
-        'tracking_numbers' => 'setTrackingNumbers',
-'carrier' => 'setCarrier'    ];
+        'condition' => 'setCondition'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -111,8 +108,7 @@ class ReturnTrackingKey extends ReturnedItemStatusData
      * @var string[]
      */
     protected static $getters = [
-        'tracking_numbers' => 'getTrackingNumbers',
-'carrier' => 'getCarrier'    ];
+        'condition' => 'getCondition'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -168,8 +164,7 @@ class ReturnTrackingKey extends ReturnedItemStatusData
     {
         parent::__construct($data);
 
-        $this->container['tracking_numbers'] = isset($data['tracking_numbers']) ? $data['tracking_numbers'] : null;
-        $this->container['carrier'] = isset($data['carrier']) ? $data['carrier'] : null;
+        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
     }
 
     /**
@@ -197,49 +192,25 @@ class ReturnTrackingKey extends ReturnedItemStatusData
 
 
     /**
-     * Gets tracking_numbers
-     *
-     * @return string[]
-     */
-    public function getTrackingNumbers()
-    {
-        return $this->container['tracking_numbers'];
-    }
-
-    /**
-     * Sets tracking_numbers
-     *
-     * @param string[] $tracking_numbers The list of return tracking numbers for the announced item
-     *
-     * @return $this
-     */
-    public function setTrackingNumbers($tracking_numbers)
-    {
-        $this->container['tracking_numbers'] = $tracking_numbers;
-
-        return $this;
-    }
-
-    /**
-     * Gets carrier
+     * Gets condition
      *
      * @return string
      */
-    public function getCarrier()
+    public function getCondition()
     {
-        return $this->container['carrier'];
+        return $this->container['condition'];
     }
 
     /**
-     * Sets carrier
+     * Sets condition
      *
-     * @param string $carrier The carrier for the announced item
+     * @param string $condition Condition of the returned item
      *
      * @return $this
      */
-    public function setCarrier($carrier)
+    public function setCondition($condition)
     {
-        $this->container['carrier'] = $carrier;
+        $this->container['condition'] = $condition;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * AcceptedReturnMultiStatusResponseTest
+ * AcceptedStatusDataTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace EzzeSiftuz\ReturnsV2;
 
 /**
- * AcceptedReturnMultiStatusResponseTest Class Doc Comment
+ * AcceptedStatusDataTest Class Doc Comment
  *
  * @category    Class
- * @description AcceptedReturnMultiStatusResponse
+ * @description Details specific to a &#x27;accepted&#x27; return status.
  * @package     EzzeSiftuz\ReturnsV2
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class AcceptedReturnMultiStatusResponseTest extends \PHPUnit_Framework_TestCase
+class AcceptedStatusDataTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,23 +69,16 @@ class AcceptedReturnMultiStatusResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "AcceptedReturnMultiStatusResponse"
+     * Test "AcceptedStatusData"
      */
-    public function testAcceptedReturnMultiStatusResponse()
+    public function testAcceptedStatusData()
     {
     }
 
     /**
-     * Test attribute "results"
+     * Test attribute "condition"
      */
-    public function testPropertyResults()
-    {
-    }
-
-    /**
-     * Test attribute "errors"
-     */
-    public function testPropertyErrors()
+    public function testPropertyCondition()
     {
     }
 }

@@ -1,6 +1,6 @@
 # EzzeSiftuz\ReturnsV2\ReturnsStatusApi
 
-All URIs are relative to */*
+All URIs are relative to *https://partner-acl.develop.returns.platform.otto.de/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**receiveRejectedReturnsV2UsingPOST**](ReturnsStatusApi.md#receiverejectedreturnsv2usingpost) | **POST** /v2/returns/rejection | Reject the return for a sent position item (up to 200 items per request)
 
 # **getPositionItemsForUsingGET**
-> \EzzeSiftuz\ReturnsV2\Model\PositionItemList getPositionItemsForUsingGET($authorization, $status, $limit, $name, $page)
+> \EzzeSiftuz\ReturnsV2\Model\PositionItemList getPositionItemsForUsingGET($status, $limit, $page)
 
 Get all the items filtered on return status
 
@@ -25,14 +25,12 @@ $apiInstance = new EzzeSiftuz\ReturnsV2\Api\ReturnsStatusApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$authorization = "authorization_example"; // string | Access Token
 $status = "status_example"; // string | Return status for which items are being queried for
-$limit = 56; // int | Page size to limit the number of items returned in the response. Maximum value for limit can 10
-$name = "name_example"; // string | 
-$page = 56; // int | Page number to fetch. This parameter is required to fetch data for specific page number
+$limit = 10; // int | Page size to limit the number of items returned in the response. Maximum value for limit can 10
+$page = 1; // int | Page number to fetch. This parameter is required to fetch data for specific page number
 
 try {
-    $result = $apiInstance->getPositionItemsForUsingGET($authorization, $status, $limit, $name, $page);
+    $result = $apiInstance->getPositionItemsForUsingGET($status, $limit, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnsStatusApi->getPositionItemsForUsingGET: ', $e->getMessage(), PHP_EOL;
@@ -44,11 +42,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **string**| Access Token |
  **status** | **string**| Return status for which items are being queried for |
- **limit** | **int**| Page size to limit the number of items returned in the response. Maximum value for limit can 10 | [optional]
- **name** | **string**|  | [optional]
- **page** | **int**| Page number to fetch. This parameter is required to fetch data for specific page number | [optional]
+ **limit** | **int**| Page size to limit the number of items returned in the response. Maximum value for limit can 10 | [optional] [default to 10]
+ **page** | **int**| Page number to fetch. This parameter is required to fetch data for specific page number | [optional] [default to 1]
 
 ### Return type
 
@@ -66,7 +62,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **receiveAcceptedReturnsV2UsingPOST**
-> object receiveAcceptedReturnsV2UsingPOST($body, $authorization, $name)
+> object receiveAcceptedReturnsV2UsingPOST($body)
 
 Accept the return for a sent position item (up to 200 items per request)
 
@@ -81,11 +77,9 @@ $apiInstance = new EzzeSiftuz\ReturnsV2\Api\ReturnsStatusApi(
     new GuzzleHttp\Client()
 );
 $body = new \EzzeSiftuz\ReturnsV2\Model\AcceptedPartnerReturnV2(); // \EzzeSiftuz\ReturnsV2\Model\AcceptedPartnerReturnV2 | acceptedPartnerReturn
-$authorization = "authorization_example"; // string | Access Token
-$name = "name_example"; // string | 
 
 try {
-    $result = $apiInstance->receiveAcceptedReturnsV2UsingPOST($body, $authorization, $name);
+    $result = $apiInstance->receiveAcceptedReturnsV2UsingPOST($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnsStatusApi->receiveAcceptedReturnsV2UsingPOST: ', $e->getMessage(), PHP_EOL;
@@ -98,8 +92,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**\EzzeSiftuz\ReturnsV2\Model\AcceptedPartnerReturnV2**](../Model/AcceptedPartnerReturnV2.md)| acceptedPartnerReturn |
- **authorization** | **string**| Access Token |
- **name** | **string**|  | [optional]
 
 ### Return type
 
@@ -117,7 +109,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **receiveRejectedReturnsV2UsingPOST**
-> object receiveRejectedReturnsV2UsingPOST($body, $authorization, $name)
+> object receiveRejectedReturnsV2UsingPOST($body)
 
 Reject the return for a sent position item (up to 200 items per request)
 
@@ -132,11 +124,9 @@ $apiInstance = new EzzeSiftuz\ReturnsV2\Api\ReturnsStatusApi(
     new GuzzleHttp\Client()
 );
 $body = new \EzzeSiftuz\ReturnsV2\Model\RejectedPartnerReturnV2(); // \EzzeSiftuz\ReturnsV2\Model\RejectedPartnerReturnV2 | rejectedPartnerReturn
-$authorization = "authorization_example"; // string | Access Token
-$name = "name_example"; // string | 
 
 try {
-    $result = $apiInstance->receiveRejectedReturnsV2UsingPOST($body, $authorization, $name);
+    $result = $apiInstance->receiveRejectedReturnsV2UsingPOST($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnsStatusApi->receiveRejectedReturnsV2UsingPOST: ', $e->getMessage(), PHP_EOL;
@@ -149,8 +139,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**\EzzeSiftuz\ReturnsV2\Model\RejectedPartnerReturnV2**](../Model/RejectedPartnerReturnV2.md)| rejectedPartnerReturn |
- **authorization** | **string**| Access Token |
- **name** | **string**|  | [optional]
 
 ### Return type
 

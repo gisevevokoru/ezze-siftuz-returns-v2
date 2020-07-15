@@ -62,14 +62,12 @@ $apiInstance = new EzzeSiftuz\ReturnsV2\Api\ReturnsStatusApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$authorization = "authorization_example"; // string | Access Token
 $status = "status_example"; // string | Return status for which items are being queried for
-$limit = 56; // int | Page size to limit the number of items returned in the response. Maximum value for limit can 10
-$name = "name_example"; // string | 
-$page = 56; // int | Page number to fetch. This parameter is required to fetch data for specific page number
+$limit = 10; // int | Page size to limit the number of items returned in the response. Maximum value for limit can 10
+$page = 1; // int | Page number to fetch. This parameter is required to fetch data for specific page number
 
 try {
-    $result = $apiInstance->getPositionItemsForUsingGET($authorization, $status, $limit, $name, $page);
+    $result = $apiInstance->getPositionItemsForUsingGET($status, $limit, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnsStatusApi->getPositionItemsForUsingGET: ', $e->getMessage(), PHP_EOL;
@@ -81,11 +79,9 @@ $apiInstance = new EzzeSiftuz\ReturnsV2\Api\ReturnsStatusApi(
     new GuzzleHttp\Client()
 );
 $body = new \EzzeSiftuz\ReturnsV2\Model\AcceptedPartnerReturnV2(); // \EzzeSiftuz\ReturnsV2\Model\AcceptedPartnerReturnV2 | acceptedPartnerReturn
-$authorization = "authorization_example"; // string | Access Token
-$name = "name_example"; // string | 
 
 try {
-    $result = $apiInstance->receiveAcceptedReturnsV2UsingPOST($body, $authorization, $name);
+    $result = $apiInstance->receiveAcceptedReturnsV2UsingPOST($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnsStatusApi->receiveAcceptedReturnsV2UsingPOST: ', $e->getMessage(), PHP_EOL;
@@ -97,11 +93,9 @@ $apiInstance = new EzzeSiftuz\ReturnsV2\Api\ReturnsStatusApi(
     new GuzzleHttp\Client()
 );
 $body = new \EzzeSiftuz\ReturnsV2\Model\RejectedPartnerReturnV2(); // \EzzeSiftuz\ReturnsV2\Model\RejectedPartnerReturnV2 | rejectedPartnerReturn
-$authorization = "authorization_example"; // string | Access Token
-$name = "name_example"; // string | 
 
 try {
-    $result = $apiInstance->receiveRejectedReturnsV2UsingPOST($body, $authorization, $name);
+    $result = $apiInstance->receiveRejectedReturnsV2UsingPOST($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnsStatusApi->receiveRejectedReturnsV2UsingPOST: ', $e->getMessage(), PHP_EOL;
@@ -111,7 +105,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to */*
+All URIs are relative to *https://partner-acl.develop.returns.platform.otto.de/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -123,6 +117,7 @@ Class | Method | HTTP request | Description
 
  - [AcceptedPartnerReturnV2](docs/Model/AcceptedPartnerReturnV2.md)
  - [AcceptedReturnMultiStatusResponse](docs/Model/AcceptedReturnMultiStatusResponse.md)
+ - [AcceptedStatusData](docs/Model/AcceptedStatusData.md)
  - [AnnouncedStatusData](docs/Model/AnnouncedStatusData.md)
  - [ApiError](docs/Model/ApiError.md)
  - [ApiErrorResponse](docs/Model/ApiErrorResponse.md)
@@ -133,6 +128,7 @@ Class | Method | HTTP request | Description
  - [RejectedPartnerReturnV2](docs/Model/RejectedPartnerReturnV2.md)
  - [RejectedPositionItem](docs/Model/RejectedPositionItem.md)
  - [RejectedReturnMultiStatusResponse](docs/Model/RejectedReturnMultiStatusResponse.md)
+ - [RejectedStatusData](docs/Model/RejectedStatusData.md)
  - [ReturnTrackingKey](docs/Model/ReturnTrackingKey.md)
  - [ReturnedItemStatusData](docs/Model/ReturnedItemStatusData.md)
  - [ReturnedPositionItem](docs/Model/ReturnedPositionItem.md)

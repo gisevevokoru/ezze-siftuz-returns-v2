@@ -1,6 +1,6 @@
 <?php
 /**
- * ReturnTrackingKey
+ * RejectedStatusData
  *
  * PHP version 5
  *
@@ -30,14 +30,15 @@ namespace EzzeSiftuz\ReturnsV2\Model;
 use \EzzeSiftuz\ReturnsV2\ObjectSerializer;
 
 /**
- * ReturnTrackingKey Class Doc Comment
+ * RejectedStatusData Class Doc Comment
  *
  * @category Class
+ * @description Details specific to a &#x27;rejected&#x27; return status.
  * @package  EzzeSiftuz\ReturnsV2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ReturnTrackingKey extends ReturnedItemStatusData 
+class RejectedStatusData extends ReturnedItemStatusData 
 {
     const DISCRIMINATOR = null;
 
@@ -46,7 +47,7 @@ class ReturnTrackingKey extends ReturnedItemStatusData
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ReturnTrackingKey';
+    protected static $swaggerModelName = 'RejectedStatusData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -54,8 +55,8 @@ class ReturnTrackingKey extends ReturnedItemStatusData
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'tracking_numbers' => 'string[]',
-'carrier' => 'string'    ];
+        'condition' => 'string',
+'reason' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -63,8 +64,8 @@ class ReturnTrackingKey extends ReturnedItemStatusData
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'tracking_numbers' => null,
-'carrier' => null    ];
+        'condition' => null,
+'reason' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -93,8 +94,8 @@ class ReturnTrackingKey extends ReturnedItemStatusData
      * @var string[]
      */
     protected static $attributeMap = [
-        'tracking_numbers' => 'trackingNumbers',
-'carrier' => 'carrier'    ];
+        'condition' => 'condition',
+'reason' => 'reason'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -102,8 +103,8 @@ class ReturnTrackingKey extends ReturnedItemStatusData
      * @var string[]
      */
     protected static $setters = [
-        'tracking_numbers' => 'setTrackingNumbers',
-'carrier' => 'setCarrier'    ];
+        'condition' => 'setCondition',
+'reason' => 'setReason'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -111,8 +112,8 @@ class ReturnTrackingKey extends ReturnedItemStatusData
      * @var string[]
      */
     protected static $getters = [
-        'tracking_numbers' => 'getTrackingNumbers',
-'carrier' => 'getCarrier'    ];
+        'condition' => 'getCondition',
+'reason' => 'getReason'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -168,8 +169,8 @@ class ReturnTrackingKey extends ReturnedItemStatusData
     {
         parent::__construct($data);
 
-        $this->container['tracking_numbers'] = isset($data['tracking_numbers']) ? $data['tracking_numbers'] : null;
-        $this->container['carrier'] = isset($data['carrier']) ? $data['carrier'] : null;
+        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
+        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
     }
 
     /**
@@ -181,6 +182,9 @@ class ReturnTrackingKey extends ReturnedItemStatusData
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['reason'] === null) {
+            $invalidProperties[] = "'reason' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -197,49 +201,49 @@ class ReturnTrackingKey extends ReturnedItemStatusData
 
 
     /**
-     * Gets tracking_numbers
+     * Gets condition
      *
-     * @return string[]
+     * @return string
      */
-    public function getTrackingNumbers()
+    public function getCondition()
     {
-        return $this->container['tracking_numbers'];
+        return $this->container['condition'];
     }
 
     /**
-     * Sets tracking_numbers
+     * Sets condition
      *
-     * @param string[] $tracking_numbers The list of return tracking numbers for the announced item
+     * @param string $condition Condition of the returned item
      *
      * @return $this
      */
-    public function setTrackingNumbers($tracking_numbers)
+    public function setCondition($condition)
     {
-        $this->container['tracking_numbers'] = $tracking_numbers;
+        $this->container['condition'] = $condition;
 
         return $this;
     }
 
     /**
-     * Gets carrier
+     * Gets reason
      *
      * @return string
      */
-    public function getCarrier()
+    public function getReason()
     {
-        return $this->container['carrier'];
+        return $this->container['reason'];
     }
 
     /**
-     * Sets carrier
+     * Sets reason
      *
-     * @param string $carrier The carrier for the announced item
+     * @param string $reason Reason for Rejection
      *
      * @return $this
      */
-    public function setCarrier($carrier)
+    public function setReason($reason)
     {
-        $this->container['carrier'] = $carrier;
+        $this->container['reason'] = $reason;
 
         return $this;
     }
